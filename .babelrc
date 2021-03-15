@@ -3,6 +3,8 @@
         "@babel/preset-env"
     ],
     "plugin":[
-        
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-runtime",
+        "eslint-plugin-import"
     ]
 }

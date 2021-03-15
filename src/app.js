@@ -6,6 +6,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import passport from 'passport';
 import session from 'express-session';
+import index from './routes/index';
 
 const app = express();
 
@@ -18,19 +19,18 @@ app.use(express.static(path.resolve(__dirname, '../view')));//路由
 app.use(morgan('dev'));//看API正不正確
 app.use(cors());//看哪裡要接
 
-
+// 儲存機制設定
 app.use(session({
     secret:process.env.APP_KEY,//密鑰
     resave:false,
     saveUninitialized:false,
-}))
-// 必須要有22~26行，才能執行
+}));
+
+// 必須要有23~27行，才能執行
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api',(req, res ,next)=>{
-    res.status(200).json({message:'Kusa'});
-});
+app.use('/api', index);
 
 //port rouge (1~65536)
 //mssql port 1433
@@ -38,6 +38,7 @@ app.use('/api',(req, res ,next)=>{
 const server = http.createServer(app);
 
 server.listen(3000);
+
 server.on('listening',()=>{
     const address = server.address();
     console.log(`This server is on ${address.port}`)

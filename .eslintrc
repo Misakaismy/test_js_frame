@@ -1,0 +1,9 @@
+{
+    "perser":[
+        "eslint"
+    ],
+    "plugins": [
+        "eslint-plugin",
+        "import"
+    ]
+}
