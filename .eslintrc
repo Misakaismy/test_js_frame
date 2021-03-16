@@ -3,7 +3,6 @@
         "eslint"
     ],
     "plugins": [
-        "eslint-plugin",
-        "import"
+        "eslint-plugin-import"
     ]
 }

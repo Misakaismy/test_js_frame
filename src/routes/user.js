@@ -1,9 +1,13 @@
 import {Router} from 'express';
-import {getuser} from '../controllers/user.js'
+// import {controller} from '../controllers/user.js'
 
 const router = Router();
 
-router.get('/', getuser.getuser);
-router.post('/', getuser.postuser);
+router.use('/', (req,res)=>{
+    res.status(200).json({message:'Hi'});
+});
+
+// router.get('/', controller.getuser);
+// router.post('/', controller.postuser);
 
 export default router;
